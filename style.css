@@ -1,0 +1,271 @@
+:root {
+  --headerBgColor: #1a1e1f;
+  --footerBgColor: #1a1e1f;
+  --pageBgColor: #2b2b2b;
+  --textColorPrimary: #fff;
+  --textColorTertiary: #00aef3;
+  --textColorSecondary: #F4F4F4;
+  --mobileMenuIconColor: #fff;
+  --btnBgColor: rgb(0,174,243);
+  --sectionBgColor: rgb(22, 22, 22);
+  --sectionTitleColor: rgba(244,244,244,1);
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("/assets/fonts/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/assets/fonts/Roboto/Roboto-Light.ttf");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/assets/fonts/Roboto/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("/assets/fonts/Roboto/Roboto-Black.ttf");
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--headerBgColor);
+}
+header.desktop-header {
+  height: 8.4rem;
+}
+header.mobile-header {
+  height: 7rem;
+}
+header.mobile-header .content-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header.mobile-header .content-wrapper .right-content .menu {
+  width: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 2rem;
+}
+header.mobile-header .content-wrapper .right-content .menu .line {
+  border-radius: 1.3px;
+  height: 0.3rem;
+  width: 100%;
+  background-color: var(--mobileMenuIconColor);
+}
+header.mobile-header .content-wrapper .right-content .menu .line:first-child {
+  width: 50%;
+}
+header.mobile-header .content-wrapper .right-content .menu .line:last-child {
+  width: 50%;
+  margin-left: auto;
+}
+
+footer {
+  width: 100%;
+  height: 27rem;
+  background-color: var(--footerBgColor);
+  margin-top: 5rem;
+}
+footer .content-wrapper {
+  padding: 3.2rem 0;
+}
+footer .content-wrapper .logo img {
+  max-height: 3rem;
+}
+footer .content-wrapper .contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3.2rem;
+}
+footer .content-wrapper .contact .btn {
+  color: var(--textColorPrimary);
+  border-radius: 5px;
+  background-color: var(--btnBgColor);
+  width: 11rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-family: "Roboto-Light", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+}
+footer .content-wrapper .contact .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0 1.5rem;
+}
+footer .content-wrapper .contact .social-icons .icon img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+footer .content-wrapper .terms-and-privacy {
+  font-size: 1.5rem;
+  margin-top: 3.5rem;
+  color: var(--textColorSecondary);
+  letter-spacing: 0.1rem;
+}
+footer .content-wrapper .terms-and-privacy .terms {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.middle {
+  width: 32rem;
+  margin: auto;
+}
+@media (max-width: 300px) {
+  .middle {
+    width: 80vw;
+  }
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--pageBgColor);
+}
+body main {
+  margin-top: 7rem;
+}
+body main section.title {
+  width: 100%;
+  height: 21.6rem;
+  background-image: url("https://static.wixstatic.com/media/93e8a3_9fa23196ddf6427a9da574e2b31a13d2~mv2.jpg/v1/fill/w_1804,h_420,al_c,q_85,enc_auto/93e8a3_9fa23196ddf6427a9da574e2b31a13d2~mv2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 500px) {
+  body main section.title {
+    height: 30rem;
+  }
+}
+@media (min-width: 600px) {
+  body main section.title {
+    height: 35rem;
+  }
+}
+body main section.title .content-wrapper {
+  padding: 5rem 0;
+}
+body main section.title .content-wrapper h1, body main section.title .content-wrapper h3 {
+  font-size: 3rem;
+  font-family: "Roboto-Black", sans-serif;
+  color: var(--textColorPrimary);
+}
+@media (max-width: 300px) {
+  body main section.title .content-wrapper h1, body main section.title .content-wrapper h3 {
+    font-size: 8vw;
+  }
+}
+@media (min-width: 500px) {
+  body main section.title .content-wrapper h1, body main section.title .content-wrapper h3 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 600px) {
+  body main section.title .content-wrapper h1, body main section.title .content-wrapper h3 {
+    font-size: 3.8rem;
+  }
+}
+body main section.title .content-wrapper h3 {
+  line-height: 4rem;
+}
+body main section.description p {
+  font-family: "Roboto-Light", sans-serif;
+  font-size: 1.8rem;
+  margin: 3.2rem 0;
+  color: var(--textColorSecondary);
+  line-height: 2.6rem;
+  font-weight: 200;
+}
+body main section.description a {
+  font-family: "Roboto-Medium";
+  color: var(--textColorTertiary);
+  font-size: 1.6rem;
+}
+body main section.courses {
+  margin-top: 3.3rem;
+  background-color: var(--sectionBgColor);
+}
+body main section.courses h2.heading {
+  padding: 2rem 0 2.6rem;
+  color: var(--sectionTitleColor);
+  font-size: 2.6rem;
+  font-family: "Roboto-Light", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+}
+body main section.courses .course-list {
+  padding-bottom: 5rem;
+}
+body main section.courses .course-list li {
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 1px solid rgb(85, 85, 85);
+  margin-bottom: 2.5rem;
+}
+body main section.courses .course-list li img {
+  max-width: 100%;
+  margin-bottom: 2.6rem;
+}
+body main section.courses .course-list li h5 {
+  color: var(--textColorSecondary);
+  font-size: 1.5rem;
+  font-family: "Roboto-Regular", sans-serif;
+  margin: 0 2rem 2rem;
+}
+body main section.courses .course-list li p {
+  color: var(--sectionTitleColor);
+  font-size: 1.4rem;
+  margin: 0 2rem 2rem;
+  font-family: "Roboto-Regular", sans-serif;
+  font-weight: 400;
+}
+body main section.courses .course-list li .see-details {
+  margin: 2.5rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+}
+body main section.courses .course-list li .see-details span {
+  color: var(--textColorTertiary);
+  font-family: "Robotp-Regular", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  body main {
+    margin-top: 8.4rem;
+  }
+}/*# sourceMappingURL=style.css.map */

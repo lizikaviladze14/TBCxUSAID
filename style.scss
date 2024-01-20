@@ -1,0 +1,175 @@
+@import 'styles/_variables';
+@import 'styles/_mixins';
+@import 'styles/_typography';
+
+@import 'styles/layouts/header.scss';
+@import 'styles/layouts/footer.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+ul li {
+    list-style-type: none;
+}
+
+.middle {
+    width: 32rem;
+    margin: auto;
+
+    @include device(small-phone) {
+        width: 80vw;
+    }
+
+    @include device(big-phone) {
+        // height: 40rem;
+    }
+
+    @include device(tablet-portrait) {
+        // height: 45rem;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--pageBgColor);
+    main {
+        margin-top: 7rem;
+    
+        section {
+            &.title {
+                width: 100%;
+                height: 21.6rem;
+                background-image: url('https://static.wixstatic.com/media/93e8a3_9fa23196ddf6427a9da574e2b31a13d2~mv2.jpg/v1/fill/w_1804,h_420,al_c,q_85,enc_auto/93e8a3_9fa23196ddf6427a9da574e2b31a13d2~mv2.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+    
+                @include device(big-phone) {
+                    height: 30rem;
+                }
+    
+                @include device(tablet-portrait) {
+                    height: 35rem;
+                }
+    
+                .content-wrapper {
+                    padding: 5rem 0;
+    
+                    h1, h3 {
+                        font-size: 3rem;
+                        font-family: 'Roboto-Black', sans-serif;
+                        color: var(--textColorPrimary);
+    
+                        @include device(small-phone) {
+                            font-size: 8vw;
+                        }
+                    
+                        @include device(big-phone) {
+                            font-size: 3.5rem;
+                        }
+                    
+                        @include device(tablet-portrait) {
+                            font-size: 3.8rem;
+                        }
+                    }
+    
+                    h3 {
+                        line-height: 4rem;
+                    }
+                }
+            }
+
+            &.description {
+                p {
+                    font-family: 'Roboto-Light', sans-serif;
+                    font-size: 1.8rem;
+                    margin: 3.2rem 0;
+                    color: var(--textColorSecondary);
+                    line-height: 2.6rem;
+                    font-weight: 200;
+                }
+
+                a {
+                    font-family: 'Roboto-Medium';
+                    color: var(--textColorTertiary);
+                    font-size: 1.6rem;
+                }
+            }
+
+            &.courses {
+                margin-top: 3.3rem;
+                background-color: var(--sectionBgColor);
+
+                h2.heading {
+                    padding: 2rem 0 2.6rem;
+                    color: var(--sectionTitleColor);
+                    font-size: 2.6rem;
+                    font-family: 'Roboto-Light',sans-serif;
+                    font-weight: 300;
+                    letter-spacing: 0.2rem;
+                }
+
+                .course-list {
+                    padding-bottom: 5rem;
+                    li {
+                        border-radius: 0.6rem;
+                        overflow: hidden;
+                        border: 1px solid rgba(85, 85, 85, 1);
+                        margin-bottom: 2.5rem;
+                        $marginSides: 2rem;
+
+                        img {
+                            max-width: 100%;
+                            margin-bottom: 2.6rem;
+                        }
+
+                        h5 {
+                            color: var(--textColorSecondary);
+                            font-size: 1.5rem;
+                            font-family: 'Roboto-Regular', sans-serif;
+                            margin: 0 $marginSides 2rem;
+                        }
+
+                        p {
+                            color: var(--sectionTitleColor);
+                            font-size: 1.4rem;
+                            margin: 0 $marginSides 2rem;
+                            font-family: 'Roboto-Regular', sans-serif;
+                            font-weight: 400;
+                        }
+
+                        .see-details {
+                            margin: 2.5rem $marginSides 2rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0 1rem;
+
+                            span {
+                                color: var(--textColorTertiary);
+                                font-family: 'Robotp-Regular', sans-serif;
+                                font-size: 1.4rem;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        @include device(tablet-landscape) {
+            margin-top: 8.4rem;
+        }
+    }
+}
