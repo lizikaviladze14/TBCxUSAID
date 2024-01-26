@@ -3,6 +3,7 @@
 @import 'styles/_typography';
 
 @import 'styles/layouts/header.scss';
+@import 'styles/layouts/nav.scss';
 @import 'styles/layouts/footer.scss';
 
 * {
@@ -16,9 +17,12 @@ a {
     color: inherit;
 }
 
-
 ul li {
     list-style-type: none;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 .middle {
@@ -30,24 +34,49 @@ ul li {
     }
 
     @include device(big-phone) {
-        // height: 40rem;
+        width: 40rem;
     }
 
     @include device(tablet-portrait) {
-        // height: 45rem;
+        width: 50rem;
     }
-}
 
-html {
-    font-size: 62.5%;
+    @include device(tablet-landscape) {
+        width: 60rem;
+    }
+
+    @include device(small-desktop) {
+        width: 100rem;
+    }
+
+    @include device(medium-desktop) {
+        width: 110rem;
+    }
+
+    @include device(big-desktop) {
+        width: 140rem;
+    }
 }
 
 body {
     background-color: var(--pageBgColor);
+
+    &.block-scroll {
+        overflow-y: hidden;
+    }
     main {
         margin-top: 7rem;
     
         section {
+            h2.heading {
+                padding: 2rem 0 2.6rem;
+                color: var(--sectionTitleColor);
+                font-size: 2.6rem;
+                font-family: 'Roboto-Light',sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.2rem;
+            }
+
             &.title {
                 width: 100%;
                 height: 21.6rem;
@@ -99,12 +128,25 @@ body {
                     color: var(--textColorSecondary);
                     line-height: 2.6rem;
                     font-weight: 200;
+
+                    @include device(small-phone) {
+                        font-size: 6vw;
+                    }
+
+                    @include device(small-desktop) {
+                        font-size: 2.6rem;
+                        line-height: 4rem;
+                    }
                 }
 
                 a {
                     font-family: 'Roboto-Medium';
                     color: var(--textColorTertiary);
                     font-size: 1.6rem;
+
+                    @include device(small-desktop) {
+                        font-size: 2rem;
+                    }
                 }
             }
 
@@ -123,12 +165,29 @@ body {
 
                 .course-list {
                     padding-bottom: 5rem;
+
+                    @include device(tablet-landscape) {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 0 2.5rem;
+                    }
+
                     li {
                         border-radius: 0.6rem;
                         overflow: hidden;
                         border: 1px solid rgba(85, 85, 85, 1);
                         margin-bottom: 2.5rem;
                         $marginSides: 2rem;
+
+                        @include device(tablet-landscape) {
+                            margin-bottom: 1rem;
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        @include device(small-desktop) {
+                            height: 40rem;
+                        }
 
                         img {
                             max-width: 100%;
@@ -156,12 +215,219 @@ body {
                             align-items: center;
                             gap: 0 1rem;
 
+                            @include device(tablet-landscape) {
+                                margin-top: auto;
+                            }
+
                             span {
                                 color: var(--textColorTertiary);
                                 font-family: 'Robotp-Regular', sans-serif;
                                 font-size: 1.4rem;
                                 font-weight: 400;
                             }
+                        }
+                    }
+                }
+            }
+
+            &.partners {
+                position: relative;
+                padding-bottom: 5rem;
+                h3.heading {
+                    padding: 2rem 0 2.6rem;
+                    color: var(--sectionTitleColor);
+                    font-size: 2.4rem;
+                    font-family: 'Roboto-Light',sans-serif;
+                    font-weight: 300;
+                    letter-spacing: 0.1rem;
+                }
+                .swiper-container {
+                    overflow: hidden;
+                    ul {
+                        margin-top: 3rem;
+                        
+                        li {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 4rem;
+                            margin: auto;
+                            transition: 280ms;
+
+                            @include device(small-desktop) {
+                                flex-direction: row;
+                                justify-content: space-between;
+                                padding: 0 2%;
+                                
+
+                                &.ufc {
+                                    justify-content: center;
+                                }
+                            }
+
+                            img {
+                                max-height: 6rem;
+
+                                @include device(small-phone) {
+                                    max-height: 10vw;
+                                }
+
+                                &.tbc-leasing {
+                                    max-height: 8rem;
+
+                                    @include device(small-phone) {
+                                        max-height: 15vw;
+                                    }
+                                }
+
+                                &.tnet {
+                                    max-height: 5rem;
+
+                                    @include device(small-phone) {
+                                        max-height: 10vw;
+                                    }
+                                }
+
+                                &.usaid {
+                                    max-height: 7rem;
+
+                                    @include device(small-phone) {
+                                        max-height: 10vw;
+                                    }
+                                }
+
+                                &.ufc {
+                                    max-height: 7rem;
+
+                                    @include device(small-phone) {
+                                        max-height: 15vw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .next, .prev {
+                        display: none;
+
+                        @include device(small-desktop) {
+                            display: block;
+                            color: var(--textColorSecondary);
+                            --swiper-navigation-size: 3rem;
+                            top: 60%;
+
+                            &.next {
+                                right: 4rem;
+                            }
+
+                            &.prev {
+                                left: 4rem;
+                            }
+                        }
+                    }
+
+                    .swiper-pagination {
+                        bottom: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1rem;
+
+                        .swiper-pagination-bullet {
+                            background-color: #fff;
+                            opacity: 0.7;
+                        }
+
+                        .swiper-pagination-bullet-active {
+                            background-color: #fff;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &.questions {
+                background-color: var(--sectionBgColor);
+                margin-top: 2rem;
+                padding: 0 0 4rem;
+
+                .content-wrapper {
+                    position: relative;
+
+                    h2.heading {
+                        padding-top: 6rem;
+                    }
+    
+                    ul {
+                        margin-top: 2rem;
+                        padding-bottom: 2rem;
+    
+                        li {
+                            border-bottom: 1px solid rgb(53, 49, 49);
+                            padding: 1rem 0;
+    
+                            .question {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin: 2rem 0;
+                                gap: 0.5rem;
+                                cursor: pointer;
+    
+                                p {
+                                    color: var(--sectionTitleColor);
+                                    font-size: 1.6rem;
+                                }
+    
+                                span.icon {
+                                    color: var(--textColorPrimary);
+                                }
+    
+                                &.extended {
+                                    span.icon {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+    
+                            .answer {
+                                opacity: 1;
+                                position: relative;
+                                transition: 280ms;
+                                font-size: 1.4rem;
+                                color: var(--sectionTitleColor);
+                                font-weight: 300;
+                                letter-spacing: 0.05rem;
+                                line-height: 2;
+    
+                                &:not(.visible) {
+                                    display: none;
+                                }
+    
+                                .paragraph-text {
+                                    padding: 0 2rem;
+                                }
+    
+                                P:last-child {
+                                    margin-top: 2rem;
+                                }
+                            }
+                        }
+                    }
+    
+                    .see-all {
+                        color: var(--textColorTertiary);
+                        font-size: 2rem;
+                        text-align: center;
+                        display: block;
+                        font-weight: 600;
+                        margin: 4rem 0;
+    
+                        @include device(small-desktop) {
+                            position: absolute;
+                            top: 2.2rem;
+                            right: 0;
                         }
                     }
                 }

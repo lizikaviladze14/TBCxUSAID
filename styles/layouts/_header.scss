@@ -4,20 +4,42 @@ header {
     left: 0;
     width: 100%;
     background-color: var(--headerBgColor);
+    z-index: 99;
+
+    .content-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     &.desktop-header {
         height: 8.4rem;
+
+        .right-content {
+            .nav-list {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+
+                li {
+                    font-family: 'Roboto-Regular', sans-serif;
+                    font-weight: 300;
+                    font-size: 1.4rem;
+                    color: var(--textColorPrimary);
+
+                    &.active {
+                        color: var(--textColorTertiary);
+                    }
+                }
+            }
+        }
     }
 
     &.mobile-header {
         height: 7rem;
 
         .content-wrapper {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
             .right-content {
                 .menu {
                     width: 2.6rem;

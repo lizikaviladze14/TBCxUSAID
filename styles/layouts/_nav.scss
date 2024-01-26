@@ -1,0 +1,49 @@
+nav#sidebar.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    z-index: 999;
+
+    &:not(.visible) {
+        display: none;
+    }
+    
+    .content-wrapper {
+        width: 60%;
+        background-color: var(--navBgColor);
+        height: 100%;
+        margin-left: auto;
+        position: relative;
+        padding: 2rem;
+
+        .close {
+            position: absolute;
+            right: 2rem;
+            font-size: 4rem;
+            color: #a6a6a6;
+            cursor: pointer;
+        }
+
+        .menu {
+            padding-top: 8rem;
+
+            li {
+                text-align: right;
+                font-size: 1.6rem;
+                color: var(--textColorSecondary);
+                font-family: 'Roboto-Medium', sans-serif;
+
+                &+li {
+                    margin-top: 2rem;
+                }
+
+                &.active {
+                    color: var(--textColorTertiary);
+                }
+            }
+        }
+    }
+}
