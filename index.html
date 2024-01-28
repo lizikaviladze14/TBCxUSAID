@@ -13,29 +13,49 @@
 
 <body>
     <script>
+        const MOBILE_WIDTH = 768
+        const HEADER_URL = 'html/layouts/'
+        const NAV_URL = 'html/layouts/nav.html'
+        const FOOTER_URL = 'html/layouts/footer.html'
+    
         function isMobileDevice() {
-            const mobileWidth = 768;
-            return window.innerWidth < mobileWidth;
+            return window.innerWidth < MOBILE_WIDTH
         }
-
+    
+        async function fetchHtml(url) {
+            try {
+                const response = await fetch(url)
+                return await response.text()
+            } catch (error) {
+                console.error(`Error fetching HTML from ${url}:`, error)
+                throw error
+            }
+        }
+    
+        function insertHtml(targetSelector, html) {
+            const targetElement = document.querySelector(targetSelector)
+            if (targetElement) {
+                targetElement.insertAdjacentHTML('beforeend', html)
+            } else {
+                console.error(`Target element "${targetSelector}" not found.`)
+            }
+        }
+    
         async function loadHeader() {
             try {
-                const response = await fetch('html/layouts/' + (isMobileDevice() ? 'mobile' : 'desktop') + '-header.html')
-                const html = await response.text()
-
-                // temporary container 
-                const tempContainer = document.createElement('div')
-                tempContainer.innerHTML = html
-
-                // remove any existing header
+                const layoutType = isMobileDevice() ? 'mobile' : 'desktop'
+                const headerUrl = `${HEADER_URL}${layoutType}-header.html`
+                const html = await fetchHtml(headerUrl)
+    
+                // remove existing header
                 const existingHeader = document.querySelector('header')
                 if (existingHeader) {
                     existingHeader.remove()
                 }
-
-                // append the contents of the header to the body
-                document.body.insertBefore(tempContainer.firstChild, document.body.firstChild)
-
+    
+                // insert new header
+                insertHtml('body', html)
+    
                 if (isMobileDevice()) {
                     await loadMobileNavigation()
                 }
@@ -43,39 +63,36 @@
                 console.error("Error loading header:", error)
             }
         }
-
+    
         async function loadMobileNavigation() {
             try {
-                const response = await fetch('html/layouts/nav.html')
-                const html = await response.text()
+                const html = await fetchHtml(NAV_URL)
                 
                 // insert mobile navigation before the main section
-                document.querySelector('main').insertAdjacentHTML('beforebegin', html)
+                insertHtml('main', html)
             } catch (error) {
                 console.error("Error loading mobile navigation:", error)
             }
         }
-
+    
         async function loadFooter() {
             try {
-                const response = await fetch('html/layouts/footer.html')
-                const html = await response.text()
-                document.body.insertAdjacentHTML('beforeend', html)
+                const html = await fetchHtml(FOOTER_URL)
+                insertHtml('body', html)
             } catch (error) {
                 console.error("Error loading footer:", error)
             }
         }
-
+    
         async function init() {
             await loadHeader()
             await loadFooter()
         }
-
-        init()
-
-        window.addEventListener('resize', loadHeader);
+    
+        document.addEventListener('DOMContentLoaded', init)
+        window.addEventListener('resize', loadHeader)
     </script>
-
+    
     <main>
         <section class="title">
             <div class="content-wrapper middle">
