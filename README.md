@@ -7,7 +7,7 @@ TBC Academy USAID Page Clone
 This project is a clone of the [TBC Academy USAID page](https://www.tbcacademy.ge/usaid). It was built using Vanilla JavaScript, HTML, and Sass. The aim of this project was to practice and enhance front-end development skills by replicating the structure, layout, and design of an existing webpage.
 
 ## Development Tools
-- **Sass Compilation:** Utilizing VSCode's 'Watch Sass' feature for translating SCSS to CSS.
+- **Sass Compilation:** Utilizing VSCode's 'Watch Sass' feature for translating SCSS to CSS (.scss files those names start with underscore do not get compiled).
 - **Local Server:** The project is served using Live Server for easy development and testing.
 
 ## Features
